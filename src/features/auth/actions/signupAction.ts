@@ -1,6 +1,6 @@
 import { ActionFunctionArgs } from 'react-router-dom';
 import { useAuthStore } from '@/features/auth/store';
-import { authService } from '@/shared/services';
+import { authService } from '@/features/auth/service';
 
 const signupAction = async ( { request }: ActionFunctionArgs ) => {
   const formData = await request.formData();
@@ -9,11 +9,11 @@ const signupAction = async ( { request }: ActionFunctionArgs ) => {
   const confirm = formData.get( 'confirm' ) as string;
 
   try {
-    await authService.signup( email, password, confirm );
-    useAuthStore.getState().setIsAuth( true );
-    return { success: true };
+    const user = await authService.signup( email, password, confirm );
+    useAuthStore.getState().setID( user.id );
+    return { user };
   } catch ( error ) {
-    return { success: false, error };
+    return { error };
   }
 };
 

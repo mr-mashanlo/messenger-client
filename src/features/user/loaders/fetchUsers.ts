@@ -1,11 +1,11 @@
-import { userService } from '@/shared/services';
+import { userService } from '@/features/user/services';
 
 const fetchUsers = async () => {
   try {
     const users = await userService.getAll();
-    return { success: true, data: users };
+    return { users };
   } catch ( error ) {
-    return { success: false, error: error };
+    return { error };
   }
 };
 

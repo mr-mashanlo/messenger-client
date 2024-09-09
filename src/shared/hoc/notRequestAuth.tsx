@@ -7,9 +7,9 @@ interface Props {
 }
 
 const NotRequestAuth: FC<Props> = ( { children } ) => {
-  const { isAuth } = useAuthStore();
+  const id = useAuthStore( state => state.id );
 
-  if ( isAuth ) {
+  if ( id ) {
     return <Navigate to="/" />;
   }
 

@@ -1,6 +1,6 @@
 import { ActionFunctionArgs } from 'react-router-dom';
 import { useAuthStore } from '@/features/auth/store';
-import { authService } from '@/shared/services';
+import { authService } from '@/features/auth/service';
 
 const signinAction = async ( { request }: ActionFunctionArgs ) => {
   const formData = await request.formData();
@@ -10,10 +10,9 @@ const signinAction = async ( { request }: ActionFunctionArgs ) => {
   try {
     const user = await authService.signin( email, password );
     useAuthStore.getState().setID( user.id );
-    useAuthStore.getState().setIsAuth( true );
-    return { success: true };
+    return { user };
   } catch ( error ) {
-    return { success: false, error };
+    return { error };
   }
 };
 

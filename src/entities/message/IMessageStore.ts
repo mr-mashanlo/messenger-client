@@ -1,8 +1,8 @@
-import { IMessage } from './IMessage';
+import { IUser } from '../user/types';
 
 export interface IMessageStore {
-  messages: Array<IMessage>,
-  receiverId: string,
-  addToMessages: ( message: IMessage ) => void,
-  setRecieverId: ( id: string ) => void
+  receiver: IUser | null,
+  alerts: Array<string>
+  setReciever: ( receiver: IUser ) => void
+  setAlerts: ( alerts: Array<string> ) => void
 }

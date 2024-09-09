@@ -1,14 +1,13 @@
 import { useAuthStore } from '@/features/auth/store';
-import { authService } from '@/shared/services';
+import { authService } from '@/features/auth/service';
 
 const logoutUser = async () => {
   try {
     await authService.logout();
     useAuthStore.getState().setID( '' );
-    useAuthStore.getState().setIsAuth( false );
     return { success: true };
   } catch ( error ) {
-    return { success: false, error };
+    return { error };
   }
 };
 

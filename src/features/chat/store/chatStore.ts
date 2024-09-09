@@ -2,16 +2,17 @@ import { create } from 'zustand';
 import { IMessageStore } from '@/entities/message';
 
 const useChatStore = create<IMessageStore>( set => ( {
-  messages: [],
-  receiverId: '',
+  receiver: null,
+  alerts: [],
 
-  addToMessages( message ) {
-    return set( state => ( { messages: [ ...state.messages, message ] } ) );
+  setReciever( receiver ) {
+    return set( () => ( { receiver } ) );
   },
 
-  setRecieverId( id ) {
-    return set( () => ( { receiverId: id } ) );
+  setAlerts( alerts ) {
+    return set( () => ( { alerts } ) );
   }
+
 } ) );
 
 export default useChatStore;

@@ -4,16 +4,10 @@ import { IAuthStore } from '@/entities/auth/types';
 
 const useAuthStore = create( persist<IAuthStore>( set => ( {
   id: '',
-  isAuth: false,
 
   setID( id ) {
-    set( () => ( { id } ) );
-  },
-
-  setIsAuth( status ) {
-    set( () => ( { isAuth: status } ) );
+    return set( () => ( { id } ) );
   }
-
 } ), { name: 'auth' } ) );
 
 export default useAuthStore;
