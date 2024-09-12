@@ -1,6 +1,6 @@
 export interface IMessage {
-  content: string,
+  _id?: string,
+  senderId: string,
   timestamp: number,
-  senderId: string
-  receiverId: string
+  content: { text: string, media: string, }
 }

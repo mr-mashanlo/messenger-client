@@ -1,11 +1,8 @@
 import ky from 'ky';
 
-// @ts-expect-error env
-const url = import.meta.env.VITE_REACT_APP_BACK_URL;
-
 const defaultInstance = ky.create( {
   retry: 1,
-  prefixUrl: url,
+  prefixUrl: import.meta.env.VITE_REACT_APP_BACK_URL,
   credentials: 'include',
   hooks: {
     beforeError: [

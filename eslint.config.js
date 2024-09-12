@@ -31,7 +31,8 @@ export default tseslint.config(
       'linebreak-style': [ 'error', 'unix' ],
       'jsx-quotes': [ 'error', 'prefer-double' ],
       'comma-dangle': [ 'error', { arrays: 'never', objects: 'never', imports: 'never', exports: 'never', functions: 'never' } ],
-      'no-multiple-empty-lines': [ 'error', { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 } ]
+      'no-multiple-empty-lines': [ 'error', { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 } ],
+      'react-refresh/only-export-components': 'off'
     }
   }
 );

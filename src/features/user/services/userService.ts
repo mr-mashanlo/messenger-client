@@ -1,4 +1,4 @@
-import { IUser, IUserService } from '@/entities/user/types';
+import { IUser, IUserService } from '@/entities/user';
 import { authInstance } from '@/shared/api';
 
 class UserService implements IUserService {

@@ -9,9 +9,7 @@ interface Props {
 const RequestAuth: FC<Props> = ( { children } ) => {
   const id = useAuthStore( state => state.id );
 
-  if ( !id ) {
-    return <Navigate to="/signin" />;
-  }
+  if ( !id ) return <Navigate to="/signin" />;
 
   return children;
 };
