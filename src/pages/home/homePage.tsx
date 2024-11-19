@@ -1,25 +1,18 @@
-import { FC } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { IUser } from '@/entities/user';
-import { MessageBlock } from '@/features/message/ui';
-import { UserList } from '@/features/user/ui';
+import { FC, useEffect } from 'react';
+import { io } from 'socket.io-client';
 
-const HomePage: FC = () => {
-  const loaderData = useLoaderData() as { users?: Array<IUser>, errors?: TypeError };
-  const users = loaderData.users ? loaderData.users : [];
+const socket = io( import.meta.env.VITE_REACT_APP_BACK_URL, { withCredentials: true } );
+
+export const HomePage: FC = () => {
+  useEffect( () => {
+    socket.on( 'connection', ( socket ) => { console.log( socket ); } );
+    return () => { socket.off( 'connection' ); };
+  }, [] );
 
   return (
-    <>
-      <section className="min-h-screen max-h-screen py-4 grid bg-gray-100">
-        <div className="container-block grid">
-          <div className="grid gap-4 grid-cols-[1fr_2fr_1fr]">
-            <div className="bg-white rounded-lg"><UserList users={users} /></div>
-            <div className="bg-white rounded-lg flex flex-col overflow-hidden"><MessageBlock /></div>
-            <div className="bg-white rounded-lg"></div>
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="min-h-screen px-4 flex items-center justify-center">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, eum.</p>
+    </div>
   );
 };
 

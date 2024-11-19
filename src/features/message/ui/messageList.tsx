@@ -1,9 +1,11 @@
 import { FC, useContext, useEffect } from 'react';
-import { SocketContext } from '@/shared/context';
-import { twMerge } from 'tailwind-merge';
-import { useAuthStore } from '@/features/auth/store';
-import { useMessageStore } from '../store';
 import moment from 'moment';
+import { twMerge } from 'tailwind-merge';
+
+import { useAuthStore } from '@/features/auth/store';
+import { SocketContext } from '@/shared/context';
+
+import { useMessageStore } from '../store';
 
 const MessageList: FC = () => {
   const socket = useContext( SocketContext );

@@ -1,3 +1,3 @@
-import HomePage from './homePage';
+import { homePageRoute } from './homePageRoute';
 
-export { HomePage };
+export { homePageRoute };

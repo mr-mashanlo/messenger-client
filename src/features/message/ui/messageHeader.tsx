@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { useMessageStore } from '../store';
 
 const MessageHeader: FC = () => {

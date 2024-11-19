@@ -1,12 +1,13 @@
 import { FC } from 'react';
-import { SignupForm } from '@/features/auth/ui';
 
-const SignupPage: FC = () => {
+import { SignUpWidget } from '@/widgets/auth/ui';
+
+export const SignUpPage: FC = () => {
   return (
     <div className="w-full sm:w-96 flex flex-col gap-7">
-      <SignupForm />
+      <SignUpWidget />
     </div>
   );
 };
 
-export default SignupPage;
+export default SignUpPage;

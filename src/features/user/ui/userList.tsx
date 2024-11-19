@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { IUser } from '@/entities/user';
+
 import UserButton from './userButton';
 
 interface Props {

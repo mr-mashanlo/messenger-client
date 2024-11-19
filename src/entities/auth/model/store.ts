@@ -1,8 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { IAuthStore } from '@/entities/auth';
 
-const useAuthStore = create( persist<IAuthStore>( set => ( {
+interface AuthStoreType {
+  id: string
+  setID: ( id: string ) => void
+}
+
+const useAuthStore = create( persist<AuthStoreType>( set => ( {
   id: '',
 
   setID( id: string ) {

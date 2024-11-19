@@ -1,39 +1,25 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { AuthLayout, MainLayout } from '@/shared/layout';
-import { NotRequestAuth, RequestAuth } from '@/shared/hoc';
-
-import { HomePage } from '@/pages/home';
-import { SigninPage, SignupPage } from '@/pages/auth';
-
-import { signinAction, signupAction } from '@/features/auth/actions';
-import { fetchUsers } from '@/features/user/loaders';
+import { signInPageRoute, signUpPageRoute } from '@/pages/auth';
+import { homePageRoute } from '@/pages/home';
 
 const router = createBrowserRouter( [
   {
     path: '/',
-    element: <RequestAuth><MainLayout /></RequestAuth>,
     children: [
       {
-        index: true,
-        element: <HomePage />,
-        loader: fetchUsers
-      }
-    ]
-  },
-
-  {
-    element: <NotRequestAuth><AuthLayout /></NotRequestAuth>,
-    children: [
-      {
-        path: '/signin',
-        element: <SigninPage />,
-        action: signinAction
+        lazy: async () => {
+          const { AuthLayout } = await import( '@/app/authLayout' );
+          return { Component: AuthLayout };
+        },
+        children: [ signInPageRoute, signUpPageRoute ]
       },
       {
-        path: '/signup',
-        element: <SignupPage />,
-        action: signupAction
+        lazy: async () => {
+          const { MainLayout } = await import( '@/app/mainLayout' );
+          return { Component: MainLayout };
+        },
+        children: [ homePageRoute ]
       }
     ]
   }

@@ -1,0 +1,26 @@
+import { authInstance, defaultInstance } from '@/shared/api';
+
+export async function signin( email: string, password: string ) {
+  const response = await defaultInstance( 'auth/signin', { method: 'post', body: JSON.stringify( { email, password } ), headers: { 'content-type': 'application/json' } } );
+  return await response.json();
+};
+
+export async function signup( email: string, password: string, confirm: string ) {
+  const response = await defaultInstance( 'auth/signup', { method: 'post', body: JSON.stringify( { email, password, confirm } ), headers: { 'content-type': 'application/json' } } );
+  return await response.json();
+};
+
+export async function logout() {
+  const response = await authInstance( 'auth/logout', { method: 'get', headers: { 'content-type': 'application/json' } } );
+  return await response.json();
+};
+
+export async function remove() {
+  const response = await authInstance( 'auth/delete', { method: 'delete', headers: { 'content-type': 'application/json' } } );
+  return await response.json();
+};
+
+export async function refresh() {
+  const response = await authInstance( 'auth/refresh', { method: 'get', headers: { 'content-type': 'application/json' } } );
+  return await response.json();
+};

@@ -1,7 +1,8 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { IUser } from '@/entities/user';
+
 import { useMessageStore } from '@/features/message/store';
+import { IUser } from '@/entities/user';
 import { SocketContext } from '@/shared/context';
 
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {

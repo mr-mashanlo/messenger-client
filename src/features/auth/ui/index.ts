@@ -1,4 +1,7 @@
-import SigninForm from './signinForm';
-import SignupForm from './signupForm';
+import SignInForm from './signin';
+import SignUpForm from './signup';
 
-export { SigninForm, SignupForm };
+export {
+  SignInForm,
+  SignUpForm
+};

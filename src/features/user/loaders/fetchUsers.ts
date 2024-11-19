@@ -1,5 +1,5 @@
-import { userService } from '@/features/user/services';
 import { useAuthStore } from '@/features/auth/store';
+import { userService } from '@/features/user/services';
 
 const fetchUsers = async () => {
   try {

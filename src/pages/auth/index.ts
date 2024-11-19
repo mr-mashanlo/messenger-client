@@ -1,7 +1,6 @@
-import SigninPage from './signinPage';
-import SignupPage from './signupPage';
+import { signInPageRoute, signUpPageRoute } from './userPageRoute';
 
 export {
-  SigninPage,
-  SignupPage
+  signInPageRoute,
+  signUpPageRoute
 };
