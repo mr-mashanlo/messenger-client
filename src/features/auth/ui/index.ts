@@ -1,7 +1,7 @@
-import SignInForm from './signin';
-import SignUpForm from './signup';
+import ConnectedSignInForm from './signInForm';
+import ConnectedSignUpForm from './signUpForm';
 
 export {
-  SignInForm,
-  SignUpForm
+  ConnectedSignInForm,
+  ConnectedSignUpForm
 };

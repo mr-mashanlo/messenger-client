@@ -9,14 +9,14 @@ const router = createBrowserRouter( [
     children: [
       {
         lazy: async () => {
-          const { AuthLayout } = await import( '@/app/authLayout' );
+          const { AuthLayout } = await import( '@/app/layouts/auth' );
           return { Component: AuthLayout };
         },
         children: [ signInPageRoute, signUpPageRoute ]
       },
       {
         lazy: async () => {
-          const { MainLayout } = await import( '@/app/mainLayout' );
+          const { MainLayout } = await import( '@/app/layouts/main' );
           return { Component: MainLayout };
         },
         children: [ homePageRoute ]

@@ -1,4 +1,4 @@
-import { signInPageRoute, signUpPageRoute } from './userPageRoute';
+import { signInPageRoute, signUpPageRoute } from './router';
 
 export {
   signInPageRoute,

@@ -1,15 +1,15 @@
 import {
-  logout,
   refresh,
   remove,
-  signin,
-  signup
+  signIn,
+  signOut,
+  signUp
 } from './api';
 
 export {
-  logout,
   refresh,
   remove,
-  signin,
-  signup
+  signIn,
+  signOut,
+  signUp
 };
