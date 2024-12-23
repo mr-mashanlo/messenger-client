@@ -22,7 +22,7 @@ const SignInForm: FC<Props> = ( { error, ...others } ) => {
           <Input type="password" name="password" placeholder="••••••••" className={twMerge( 'block w-full px-3 py-2 outline-none border rounded-md bg-transparent placeholder:text-zinc-500 focus:border-zinc-500', error?.name === 'password' ? 'border-red-400' : 'border-zinc-200' )} required />
           {error?.name === 'password' && <Description className="mt-1 text-xs text-red-500 absolute top-full right-0">{error?.message}</Description>}
         </Field>
-        <Button type="submit" className="w-full px-3 py-2 mt-8 outline-none bg-black text-white border border-black rounded-md relative">Sign in</Button>
+        <Button type="submit" className="w-full px-3 py-2 mt-8 outline-none bg-black text-white border border-black rounded-md">Sign in</Button>
         <p className="mt-8 text-center">Create a new account? <Link to="/signup" className="hover:underline"><b>Sign up</b></Link></p>
       </Fieldset>
     </form>

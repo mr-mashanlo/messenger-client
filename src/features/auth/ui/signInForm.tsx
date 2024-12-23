@@ -10,7 +10,7 @@ import { useAuthMediator } from '@/shared/hook';
 
 const ConnectedSignInForm: FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuthMediator();
+  const { setSub } = useAuthMediator();
   const [ error, setError ] = useState( { name: '', message: '' } );
 
   async function handleFormSubmit( e: FormEvent<HTMLFormElement> ) {
@@ -20,7 +20,7 @@ const ConnectedSignInForm: FC = () => {
       const fields = validateSignInFormData( formData );
       const response = await signIn( fields.email, fields.password );
       const result = validateAuthResponse( response );
-      login( result.id );
+      setSub( result.id );
       navigate( '/' );
     } catch ( error ) {
       if ( error instanceof HTTPError ) {
