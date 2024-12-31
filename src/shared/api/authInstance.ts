@@ -13,7 +13,7 @@ const authInstance = defaultInstance.extend( {
     beforeRetry: [
       async ( { error }: { error: ExtendedError } ) => {
         if ( error.response?.status === 419 ) {
-          await defaultInstance( 'auth/token' );
+          await defaultInstance( 'auth/refresh' );
         }
       }
     ]
