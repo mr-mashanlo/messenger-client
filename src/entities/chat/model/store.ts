@@ -20,7 +20,8 @@ const useChatStore = create<ChatStoreType>( set => ( {
   reciever: {
     _id: '',
     email: '',
-    fullname: ''
+    fullname: '',
+    chat: ''
   },
 
   setReciever( reciever ) {

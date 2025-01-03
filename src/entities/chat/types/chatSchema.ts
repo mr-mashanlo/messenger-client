@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 export const ChatResponseSchema = z.object( {
-  __v: z.number(),
   _id: z.string(),
   users: z.array( z.string() )
 } );

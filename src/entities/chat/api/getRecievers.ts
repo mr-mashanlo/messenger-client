@@ -1,7 +1,7 @@
 import { authInstance } from '@/shared/api';
 
 async function getRecievers() {
-  const response = await authInstance( 'chat/get/users' );
+  const response = await authInstance( 'chat/get/recievers' );
   return await response.json();
 };
 
