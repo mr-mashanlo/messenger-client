@@ -1,19 +1,20 @@
-import { UserResponseSchema, UserSchema } from './schema';
+import { AuthResponseSchema, SigninSchema, SignupSchema } from '../types/authSchema';
+import { UsersResponseSchema } from '../types/userSchema';
 
-export function validateUserFormData( formData: FormData ) {
-  const fields = Object.fromEntries( formData.entries() );
-  const result = UserSchema.safeParse( fields );
-  if ( !result.success ) {
-    throw result.error;
-  }
-  return result.data;
+export function validateSigninData( data: FormData ) {
+  const fields = Object.fromEntries( data.entries() );
+  return SigninSchema.parse( fields );
 };
 
-export function validateUserResponse( formData: FormData ) {
-  const fields = Object.fromEntries( formData.entries() );
-  const result = UserResponseSchema.safeParse( fields );
-  if ( !result.success ) {
-    throw result.error;
-  }
-  return result.data;
+export function validateSignupData( data: FormData ) {
+  const fields = Object.fromEntries( data.entries() );
+  return SignupSchema.parse( fields );
 };
+
+export function validateAuthResponse( data: unknown ) {
+  return AuthResponseSchema.parse( data );
+}
+
+export function validateUsersResponse( data: unknown ) {
+  return UsersResponseSchema.parse( data );
+}

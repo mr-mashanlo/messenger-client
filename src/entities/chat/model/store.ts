@@ -1,17 +1,33 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+
+import { UserResponseType } from '@/entities/user';
 
 interface ChatStoreType {
-  reciever: string | null
-  setReciever: ( reciever: string | null ) => void
+  query: string
+  setQuery: ( query: string ) => void
+  reciever: UserResponseType
+  setReciever: ( reciever: UserResponseType ) => void
 }
 
-const useChatStore = create( persist<ChatStoreType>( set => ( {
-  reciever: '6765bcd0dec0eab20d7030a1',
+const useChatStore = create<ChatStoreType>( set => ( {
+
+  query: '',
+
+  setQuery( query ) {
+    return set( () => ( { query } ) );
+  },
+
+  reciever: {
+    _id: '',
+    email: '',
+    fullname: '',
+    chat: ''
+  },
 
   setReciever( reciever ) {
     return set( () => ( { reciever } ) );
   }
-} ), { name: 'chat' } ) );
+
+} ) );
 
 export default useChatStore;

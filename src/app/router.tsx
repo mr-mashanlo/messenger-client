@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { signInPageRoute, signUpPageRoute } from '@/pages/auth';
-import { homePageRoute } from '@/pages/home';
-import { settingsPageRoute } from '@/pages/settings';
+import { chatRoute } from '@/pages/chat';
+import { homeRoute } from '@/pages/home';
+import { signinRoute } from '@/pages/sign-in';
+import { signupRoute } from '@/pages/sign-up';
 
 const router = createBrowserRouter( [
   {
@@ -13,21 +14,14 @@ const router = createBrowserRouter( [
           const { AuthLayout } = await import( '@/app/layouts' );
           return { Component: AuthLayout };
         },
-        children: [ signInPageRoute, signUpPageRoute ]
-      },
-      {
-        lazy: async () => {
-          const { SettingsLayout } = await import( '@/app/layouts' );
-          return { Component: SettingsLayout };
-        },
-        children: [ settingsPageRoute ]
+        children: [ signinRoute, signupRoute ]
       },
       {
         lazy: async () => {
           const { MainLayout } = await import( '@/app/layouts' );
           return { Component: MainLayout };
         },
-        children: [ homePageRoute ]
+        children: [ homeRoute, chatRoute ]
       }
     ]
   }
