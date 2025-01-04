@@ -2,11 +2,11 @@ import { FC, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Button } from '@headlessui/react';
 
-import { getRecievers, useChatMediator } from '@/entities/chat';
+import { getRecievers, setQuery, useChatMediator } from '@/entities/chat';
 import { findUsers, UserResponseType, validateUsersResponse } from '@/entities/user';
 
 const UserList: FC = () => {
-  const { query, setQuery, setReciever } = useChatMediator();
+  const { query, setReciever } = useChatMediator();
   const [ users, setUsers ] = useState<Array<UserResponseType>>( [] );
 
   useQuery( {
@@ -40,7 +40,7 @@ const UserList: FC = () => {
   return (
     <div>
       {users.map( user => (
-        <Button onClick={() => handleCreateChat( user )} key={user._id} data-id={user._id} data-chat={user.chat} className="w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-zinc-50">
+        <Button onClick={() => handleCreateChat( user )} key={user._id} data-id={user._id} data-chat={user.chat} className="w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-zinc-100">
           {user.fullname}
           <span className="block w-3 h-3 rounded-full"></span>
         </Button>
