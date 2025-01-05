@@ -1,9 +1,9 @@
-function debounce() {
+function debounce( timer: number ) {
   let timerID: ReturnType<typeof setTimeout> | null = null;
 
   return ( callback: () => void ) => {
     if ( timerID ) { clearTimeout( timerID ); }
-    timerID = setTimeout( () => { callback(); }, 1000 );
+    timerID = setTimeout( () => { callback(); }, timer );
   };
 }
 

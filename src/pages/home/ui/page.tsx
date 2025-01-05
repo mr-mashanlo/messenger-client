@@ -10,8 +10,8 @@ import { useChatMediator } from '@/entities/chat';
 import SocketContext from '@/entities/chat/model/context';
 
 export const HomePage: FC = () => {
-  const { reciever } = useChatMediator();
   const socket = useContext( SocketContext );
+  const { reciever } = useChatMediator();
 
   useEffect( () => {
     socket.connect();
@@ -20,7 +20,7 @@ export const HomePage: FC = () => {
 
   return (
     <div className="min-h-screen px-60 py-10 grid items-center">
-      <div className="min-h-[30rem] max-h-[calc(100vh-5rem)] h-full w-full grid grid-cols-[1fr_2fr] border border-black overflow-hidden">
+      <div  className="min-h-[30rem] max-h-[calc(100vh-5rem)] h-full w-full grid grid-cols-[1fr_2fr] border border-black overflow-hidden">
         <div className="flex flex-col border-r border-black overflow-hidden">
           <div className="p-3 border-b border-black"><UserSearch /></div>
           <div className="h-full overflow-auto scroll-hidden"><UserList /></div>
@@ -28,7 +28,7 @@ export const HomePage: FC = () => {
         <div className="flex flex-col overflow-hidden">
           <When condition={reciever._id}>
             <div className="p-3 border-b border-black"><ChatHeader /></div>
-            <div className="h-full p-3 overflow-auto scroll-hidden"><ChatHistory /></div>
+            <div className="h-full p-3 overflow-auto scroll-hidden flex flex-col justify-end"><ChatHistory /></div>
             <div className="p-3 border-t border-black"><ChatForm /></div>
           </When>
         </div>
