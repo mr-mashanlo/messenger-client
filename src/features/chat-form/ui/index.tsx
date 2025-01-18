@@ -18,7 +18,7 @@ const ChatForm: FC = () => {
     setMessage( '' );
   }
 
-  return <Input onKeyUp={e => handleSubmit( e )} onChange={e => setMessage( e.target.value )} value={message} name="message" type="text" className="block w-full px-3 py-2 outline-none bg-zinc-100 rounded-md bg-transparent placeholder:text-zinc-500 focus:border-black" />;
+  return <Input onKeyUp={e => handleSubmit( e )} onChange={e => setMessage( e.target.value )} value={message} name="message" type="text" placeholder="Enter message" className="block w-full p-3 outline-none bg-zinc-100 rounded-md bg-transparent placeholder:text-zinc-500 focus:border-black" />;
 };
 
 export default ChatForm;

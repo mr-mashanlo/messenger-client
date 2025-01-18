@@ -23,6 +23,7 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': 'off',
       'no-trailing-spaces': 'error',
+      'comma-dangle': 'error',
       indent: [
         'error',
         2
@@ -61,16 +62,6 @@ export default tseslint.config(
       'jsx-quotes': [
         'error',
         'prefer-double'
-      ],
-      'comma-dangle': [
-        'error',
-        {
-          arrays: 'never',
-          objects: 'never',
-          imports: 'never',
-          exports: 'never',
-          functions: 'never'
-        }
       ],
       'no-multiple-empty-lines': [
         'error',

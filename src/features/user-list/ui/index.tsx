@@ -40,9 +40,9 @@ const UserList: FC = () => {
   return (
     <div>
       {users.map( user => (
-        <Button onClick={() => handleCreateChat( user )} key={user._id} data-id={user._id} data-chat={user.chat} className="w-full p-4 text-left flex items-center justify-between gap-4 hover:bg-zinc-100">
+        <Button onClick={() => handleCreateChat( user )} key={user._id} data-id={user._id} data-chat={user.chat} className="w-full p-2 text-left flex items-center gap-4 border-b border-zinc-200 hover:bg-zinc-50">
+          <span className="block w-11 h-11 rounded-full bg-zinc-100"></span>
           {user.fullname}
-          <span className="block w-3 h-3 rounded-full"></span>
         </Button>
       ) )}
     </div>
